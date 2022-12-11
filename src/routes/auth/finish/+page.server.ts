@@ -47,8 +47,6 @@ export const load: PageServerLoad = async ({ url, fetch, cookies }) => {
 			expires: expiry
 		};
 
-		console.log(cookieObj);
-
 		cookies.set(cookieName, cookieValue, cookieObj);
 	} catch (err: any) {
 		throw error(400, {
