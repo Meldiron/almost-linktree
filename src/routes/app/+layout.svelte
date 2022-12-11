@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { page } from '$app/stores';
 	import { appwriteEndpoint } from '$lib/appwrite';
 	import type { LayoutData } from './$types';
 
@@ -14,7 +15,7 @@
 		<div class="flex flex-col justify-between flex-1 mt-6">
 			<nav>
 				<a
-					class="flex items-center px-4 py-2 text-gray-700 bg-gray-100 rounded-md dark:bg-gray-800 dark:text-gray-200"
+                class={`${$page.url.pathname.startsWith('/app/links') ? 'bg-gray-100 dark:bg-gray-800' : ''} flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700`}
 					href="/app/links"
 				>
 					<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +34,7 @@
 				<hr class="my-6 border-gray-200 dark:border-gray-600" />
 
 				<a
-					class="flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+					class={`${$page.url.pathname.startsWith('/app/settings') ? 'bg-gray-100 dark:bg-gray-800' : ''} flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700`}
 					href="/app/settings"
 				>
 					<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -72,5 +73,9 @@
 
 	<div class="p-4 w-full">
 		<slot />
+
+        <div class="max-w-sm mx-auto mt-6 border-t-2 border-gray-200 pt-4">
+            <p class="text-gray-400 text-sm text-center">Made with 🖤 and <a class="text-black" href="https://appwrite.io/" rel="noreferrer" target="_blank">Appwrite</a>. Contact: <a class="text-black" href="mailto:contact@almostapps.eu">contact@almostapps.eu</a></p>
+        </div>
 	</div>
 </div>

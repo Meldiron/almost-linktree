@@ -14,7 +14,6 @@ export const actions: Actions = {
     try {
         await AppwriteService.login(email.toString(), url.origin);
     } catch(err: any) {
-        console.log(err);
         return fail(400, { success: false, message: "Cannot send sign-in mail: " + err.message });
     }
 

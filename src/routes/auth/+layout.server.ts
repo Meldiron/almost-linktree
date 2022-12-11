@@ -1,8 +1,8 @@
 import { appwriteCookie } from "$lib/appwrite";
 import { redirect } from "@sveltejs/kit";
-import type { PageServerLoad } from "./$types";
+import type { LayoutServerLoad } from "./$types";
 
-export const load: PageServerLoad = async ({ cookies }) => {
+export const load: LayoutServerLoad = async ({ cookies }) => {
 	const authCookie = cookies.get(appwriteCookie);
 
 	if (authCookie) {

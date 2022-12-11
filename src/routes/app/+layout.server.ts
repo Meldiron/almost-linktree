@@ -12,13 +12,15 @@ export const load: LayoutServerLoad = async ({ cookies }) => {
 	AppwriteService.setSSRAuth(authCookie);
 
 	try {
-		const account = AppwriteService.getAccount();
-
+		const account = await AppwriteService.getAccount();
+		const profile = await AppwriteService.getProfile(account.$id);
+		
 		return {
-			account
+			account,
+			profile
 		};
 	} catch (err: any) {
+		console.log(err);
 		throw redirect(307, '/auth');
 	}
 };
-

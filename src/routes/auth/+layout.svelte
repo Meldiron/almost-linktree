@@ -7,3 +7,7 @@
 
 	<slot />
 </div>
+
+<div class="max-w-sm mx-auto mt-4">
+	<p class="text-gray-400 text-sm text-center">Made with 🖤 and <a class="text-black" href="https://appwrite.io/" rel="noreferrer" target="_blank">Appwrite</a>. Contact: <a class="text-black" href="mailto:contact@almostapps.eu">contact@almostapps.eu</a></p>
+</div>

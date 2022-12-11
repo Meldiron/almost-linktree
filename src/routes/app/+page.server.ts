@@ -1,5 +1,6 @@
 import { appwriteCookie } from "$lib/appwrite";
 import { redirect } from "@sveltejs/kit";
+import type { PageServerLoad } from "./$types";
 import type { Actions } from "./$types";
 
 export const actions: Actions = {
@@ -13,4 +14,8 @@ export const actions: Actions = {
 		});
 		throw redirect(307, '/auth');
 	}
+};
+
+export const load: PageServerLoad = async () => {
+    throw redirect(307, '/app/settings');
 };
