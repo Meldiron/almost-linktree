@@ -1,6 +1,6 @@
 import { Client, Account, ID } from 'appwrite';
 
-export const appwriteEndpoint = 'https://cloud.appwrite.io/v1';
+export const appwriteEndpoint = 'https://backend.linktree.almostapps.eu/v1';
 export const appwriteProjectId = 'almostLinktree';
 export const appwriteCookie = `a_session_${appwriteProjectId.toLowerCase()}_legacy`;
 export const appwriteCookieJson = `a_session_${appwriteProjectId}`;
