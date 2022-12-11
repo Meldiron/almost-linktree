@@ -25,23 +25,36 @@ export const load: PageServerLoad = async ({ url, fetch, cookies }) => {
 			})
 		});
 
-        if(request.status > 200) {
-            throw Error(request.statusText);
-        }
+		if (request.status >= 300) {
+			throw Error(request.statusText);
+		}
 
 		const cookie = (request.headers.get('set-cookie') ?? '')
 			.split('.' + appwriteEndpoint)
 			.join(url.origin);
 
-        console.log(request.headers.get('set-cookie'));
+		const [cookiePair, ...cookieParams] = cookie.split(';');
+		const [cookieName, cookieValue] = cookiePair.split('=');
 
-        // TODO: Set cookies properly
-        // cookies.set("")
+		const expiry = new Date();
+		expiry.setFullYear(expiry.getFullYear() + 1);
 
-		throw redirect(307, '/');
+		const cookieObj = {
+			secure: true,
+			httpOnly: true,
+			path: '/',
+			domain: (url.hostname !== 'localhost' ? '.' : '') + url.hostname,
+			expires: expiry
+		};
+
+		console.log(cookieObj);
+
+		cookies.set(cookieName, cookieValue, cookieObj);
 	} catch (err: any) {
 		throw error(400, {
 			message: 'Link is no longer valid: ' + err.message
 		});
 	}
+
+	throw redirect(307, '/');
 };
