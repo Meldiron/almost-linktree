@@ -49,12 +49,39 @@ export class AppwriteService {
 		return docs.documents.length <= 0 ? null : docs.documents[0];
 	}
 
+
+	static async getProfileBySlug(slug: string) {
+		const docs = await databases.listDocuments<Profile>('main', 'profiles', [
+			Query.limit(1),
+			Query.equal('slug', slug),
+			Query.orderAsc('$createdAt')
+		]);
+
+		return docs.documents.length <= 0 ? null : docs.documents[0];
+	}
+
 	static async updateProfile(newDoc: any, profileId: string | null = null) {
 		if (profileId) {
 			return await databases.updateDocument('main', 'profiles', profileId, newDoc);
 		} else {
 			return await databases.createDocument('main', 'profiles', ID.unique(), newDoc);
 		}
+	}
+
+	static async createLink(newDoc: any) {
+		return await databases.createDocument('main', 'links', ID.unique(), newDoc);
+	}
+
+	static async updateLink(linkId: string, newDoc: any) {
+		return await databases.updateDocument('main', 'links', linkId, newDoc);
+	}
+
+	static async getLink(linkId: string) {
+		return await databases.getDocument('main', 'links', linkId);
+	}
+
+	static async deleteLink(linkId: string) {
+		return await databases.deleteDocument('main', 'links', linkId);
 	}
 
 	static async getLinks(profileId: string) {

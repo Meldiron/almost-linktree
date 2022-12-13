@@ -14,13 +14,12 @@ export const load: LayoutServerLoad = async ({ cookies }) => {
 	try {
 		const account = await AppwriteService.getAccount();
 		const profile = await AppwriteService.getProfile(account.$id);
-		
+
 		return {
 			account,
 			profile
 		};
 	} catch (err: any) {
-		console.log(err);
 		throw redirect(307, '/auth');
 	}
 };
