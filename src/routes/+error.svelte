@@ -1,8 +1,8 @@
 <script lang="ts">
-    import { page } from '$app/stores';
-  </script>
-  
-  <section class="w-full min-h-screen bg-white dark:bg-gray-900">
+	import { page } from '$app/stores';
+</script>
+
+<section class="w-full min-h-screen bg-white dark:bg-gray-900">
 	<div class="container relative flex flex-col min-h-screen px-6 py-8 mx-auto">
 		<section class="flex items-center flex-1">
 			<div class="flex flex-col w-full ">
@@ -26,13 +26,13 @@
 					Noone is perfect. But this app? Nowhere close!
 				</p>
 
-				<p
-					class="max-w-3xl mx-auto mt-6 text-center text-gray-700 dark:text-white"
-				>
+				<p class="max-w-3xl mx-auto mt-6 text-center text-gray-700 dark:text-white">
 					This is what happened:
 				</p>
 
-				<p class="max-w-3xl mx-auto mt-6 text-lg text-center text-black font-bold dark:text-white md:text-xl">
+				<p
+					class="max-w-3xl mx-auto mt-6 text-lg text-center text-black font-bold dark:text-white md:text-xl"
+				>
 					{$page.status}: {$page?.error?.message || 'Unexpected error.'}
 				</p>
 
@@ -40,9 +40,7 @@
 					Don't worry, there is a way out:
 				</p>
 
-				<div
-					class="flex w-full mt-8 justify-center"
-				>
+				<div class="flex w-full mt-8 justify-center">
 					<a href="/">
 						<button
 							class="px-8 py-3 text-sm font-medium tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md hover:bg-blue-600 focus:bg-blue-600 focus:outline-none sm:mx-2"

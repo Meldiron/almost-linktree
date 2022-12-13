@@ -20,8 +20,8 @@
 					link.type === 'green'
 						? 'bg-green-500 text-white'
 						: link.type === 'red'
-						? 'bg-red-500 text-white' :
-                        link.type === 'pink'
+						? 'bg-red-500 text-white'
+						: link.type === 'pink'
 						? 'bg-pink-500 text-white'
 						: link.type === 'blue'
 						? 'bg-blue-500 text-white'

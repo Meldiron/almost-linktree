@@ -49,7 +49,6 @@ export class AppwriteService {
 		return docs.documents.length <= 0 ? null : docs.documents[0];
 	}
 
-
 	static async getProfileBySlug(slug: string) {
 		const docs = await databases.listDocuments<Profile>('main', 'profiles', [
 			Query.limit(1),
@@ -85,7 +84,9 @@ export class AppwriteService {
 	}
 
 	static async getLinks(profileId: string) {
-		return await databases.listDocuments<Link>('main', 'links', [ Query.equal('profileId', profileId) ]);
+		return await databases.listDocuments<Link>('main', 'links', [
+			Query.equal('profileId', profileId)
+		]);
 	}
 }
 

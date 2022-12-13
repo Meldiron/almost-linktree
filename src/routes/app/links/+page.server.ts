@@ -6,7 +6,7 @@ export const load: PageServerLoad = async ({ parent }) => {
 	const { profile } = await parent();
 
 	if (!profile) {
-		throw error(400, {  message: 'Please fill your profile in "Settings".' });
+		throw error(400, { message: 'Please fill your profile in "Settings".' });
 	}
 
 	try {

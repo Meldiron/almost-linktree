@@ -1,7 +1,7 @@
-import { appwriteCookie } from "$lib/appwrite";
-import { redirect } from "@sveltejs/kit";
-import type { PageServerLoad } from "./$types";
-import type { Actions } from "./$types";
+import { appwriteCookie } from '$lib/appwrite';
+import { redirect } from '@sveltejs/kit';
+import type { PageServerLoad } from './$types';
+import type { Actions } from './$types';
 
 export const actions: Actions = {
 	logout: async ({ cookies, url }) => {
@@ -9,7 +9,7 @@ export const actions: Actions = {
 			secure: true,
 			httpOnly: true,
 			path: '/',
-			domain: (url.hostname !== 'localhost' ? '.' : '') + url.hostname,
+			domain: (url.hostname !== 'localhost' ? '.' : '') + url.hostname
 			// expires: expiry
 		});
 		throw redirect(307, '/auth');
@@ -17,5 +17,5 @@ export const actions: Actions = {
 };
 
 export const load: PageServerLoad = async () => {
-    throw redirect(307, '/app/settings');
+	throw redirect(307, '/app/settings');
 };

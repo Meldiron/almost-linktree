@@ -17,11 +17,15 @@
 				Settings of personal info on your Linktree.
 			</p>
 
-			<form 	use:enhance={() => {
-                return async ({update}) => {
-                    await update({ reset: false });
-                };
-            }} method="POST" class="flex flex-col space-y-3  mt-8 max-w-lg">
+			<form
+				use:enhance={() => {
+					return async ({ update }) => {
+						await update({ reset: false });
+					};
+				}}
+				method="POST"
+				class="flex flex-col space-y-3  mt-8 max-w-lg"
+			>
 				<div>
 					<label class="text-gray-700 dark:text-gray-200" for="username">Page URL:</label>
 					<div class="mt-1">
