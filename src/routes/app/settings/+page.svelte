@@ -24,14 +24,14 @@
             }} method="POST" class="flex flex-col space-y-3  mt-8 max-w-lg">
 				<div>
 					<label class="text-gray-700 dark:text-gray-200" for="username">Page URL:</label>
-					<div class="flex items-center space-x-2">
+					<div class="mt-1">
 						<span class="text-gray-500">https://linktree.almostapps.eu/u/</span>
 						<input
 							value={data.profile?.slug ?? ''}
 							name="slug"
 							type="text"
 							required={true}
-							class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
+							class="mt-1 w-full px-4 py-2 text-gray-700 bg-white border border-gray-200 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 focus:ring-blue-300 focus:ring-opacity-40 dark:focus:border-blue-300 focus:outline-none focus:ring"
 						/>
 					</div>
 				</div>

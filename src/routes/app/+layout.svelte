@@ -4,18 +4,62 @@
 	import type { LayoutData } from './$types';
 
 	export let data: LayoutData;
+
+	let menuOpened = false;
 </script>
 
-<div class="flex">
-	<div
-		class="flex flex-col w-64 h-screen px-4 py-8 bg-white border-r dark:bg-gray-900 dark:border-gray-700 flex-shrink-0"
-	>
+<div class="block md:flex">
+	<div class="w-full block md:hidden bg-white p-4 shadow-sm flex items-center justify-between">
 		<h2 class="text-3xl font-semibold text-gray-800 dark:text-white">Almost Linktree</h2>
 
-		<div class="flex flex-col justify-between flex-1 mt-6">
+		<button
+			on:click={() => (menuOpened = !menuOpened)}
+			class="bg-gray-100 rounded-md p-2 text-black"
+		>
+			{#if menuOpened}
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="currentColor"
+					class="w-6 h-6"
+				>
+					<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+				</svg>
+			{:else}
+				<svg
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 24 24"
+					stroke-width="1.5"
+					stroke="currentColor"
+					class="w-6 h-6"
+				>
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+					/>
+				</svg>
+			{/if}
+		</button>
+	</div>
+	<div
+		class={`${
+			menuOpened ? 'block !w-full' : 'hidden'
+		} md:flex flex-col w-64 h-screen p-4 md:py-8 bg-white border-r dark:bg-gray-900 dark:border-gray-700 flex-shrink-0`}
+	>
+		<h2 class="hidden md:block text-3xl font-semibold text-gray-800 dark:text-white">
+			Almost Linktree
+		</h2>
+
+		<div class="flex flex-col justify-between flex-1 md:mt-6">
 			<nav>
 				<a
-                class={`${$page.url.pathname.startsWith('/app/links') ? 'bg-gray-100 dark:bg-gray-800' : ''} flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700`}
+					class={`${
+						$page.url.pathname.startsWith('/app/links') ? 'bg-gray-100 dark:bg-gray-800' : ''
+					} flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700`}
 					href="/app/links"
 				>
 					<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -34,7 +78,9 @@
 				<hr class="my-6 border-gray-200 dark:border-gray-600" />
 
 				<a
-					class={`${$page.url.pathname.startsWith('/app/settings') ? 'bg-gray-100 dark:bg-gray-800' : ''} flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700`}
+					class={`${
+						$page.url.pathname.startsWith('/app/settings') ? 'bg-gray-100 dark:bg-gray-800' : ''
+					} flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700`}
 					href="/app/settings"
 				>
 					<svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,7 +104,7 @@
 				</a>
 			</nav>
 
-			<form method="POST" action="/app?/logout" class="flex items-center px-4 -mx-2">
+			<form method="POST" action="/app?/logout" class="mt-4 flex items-center px-4 -mx-2">
 				<img
 					class="object-cover mx-2 rounded-full h-9 w-9"
 					src={`${appwriteEndpoint}/avatars/initials?name=${data.account.email}`}
@@ -74,8 +120,16 @@
 	<div class="p-4 w-full">
 		<slot />
 
-        <div class="max-w-sm mx-auto mt-6 border-t-2 border-gray-200 pt-4">
-            <p class="text-gray-400 text-sm text-center">Made with 🖤 and <a class="text-black" href="https://appwrite.io/" rel="noreferrer" target="_blank">Appwrite</a>. Contact: <a class="text-black" href="mailto:contact@almostapps.eu">contact@almostapps.eu</a></p>
-        </div>
+		<div class="max-w-sm mx-auto mt-6 border-t-2 border-gray-200 pt-4">
+			<p class="text-gray-400 text-sm text-center">
+				Made with 🖤 and <a
+					class="text-black"
+					href="https://appwrite.io/"
+					rel="noreferrer"
+					target="_blank">Appwrite</a
+				>. Contact:
+				<a class="text-black" href="mailto:contact@almostapps.eu">contact@almostapps.eu</a>
+			</p>
+		</div>
 	</div>
 </div>
