@@ -12,7 +12,7 @@
 	</div>
 </div>
 
-<div class="max-w-lg mx-auto flex flex-col space-y-6 mt-12">
+<div class="max-w-lg p-3 mx-auto flex flex-col space-y-6 mt-6">
 	{#each data.links.documents as link}
 		<a href={link.url} rel="noreferrer">
 			<button
