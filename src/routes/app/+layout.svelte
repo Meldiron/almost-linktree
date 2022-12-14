@@ -75,8 +75,6 @@
 					<span class="mx-4 font-medium">Links</span>
 				</a>
 
-				<hr class="my-6 border-gray-200 dark:border-gray-600" />
-
 				<a
 					class={`${
 						$page.url.pathname.startsWith('/app/settings') ? 'bg-gray-100 dark:bg-gray-800' : ''
@@ -102,6 +100,34 @@
 
 					<span class="mx-4 font-medium">Settings</span>
 				</a>
+
+				{#if data.profile && data.profile.slug}
+					<hr class="my-6 border-gray-200 dark:border-gray-600" />
+
+					<a
+						class={`flex items-center px-4 py-2 mt-5 text-gray-600 transition-colors duration-300 transform rounded-md dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700`}
+						href={`/u/${data.profile.slug}`}
+						target="_blank"
+						rel="noreferrer"
+					>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke-width="2"
+							stroke="currentColor"
+							class="w-5 h-5"
+						>
+							<path
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+							/>
+						</svg>
+
+						<span class="mx-4 font-medium">Visit My Page</span>
+					</a>
+				{/if}
 			</nav>
 
 			<form method="POST" action="/app?/logout" class="mt-4 flex items-center px-4 -mx-2">

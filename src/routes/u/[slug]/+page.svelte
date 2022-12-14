@@ -32,4 +32,10 @@
 			>
 		</a>
 	{/each}
+
+	<div class={`${data.links.documents.length <= 0 ? '' : 'border-t-2'} max-w-sm mx-auto mt-6 border-gray-200 pt-4`}>
+		<p class="text-gray-400 text-sm text-center">
+			Create your own page <a class="text-black" href="/">Here</a>. It's 100% free.
+		</p>
+	</div>
 </div>
