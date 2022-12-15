@@ -44,7 +44,7 @@
 		} max-w-sm mx-auto mt-6 border-gray-200 pt-4`}
 	>
 		<p class="text-gray-400 text-sm text-center">
-			Create your own page <a class="text-black" href="/">Here</a>. It's 100% free.
+			You can <a class="text-black" href="/">Create your Page</a>. It's 100% free.
 		</p>
 	</div>
 </div>
