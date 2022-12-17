@@ -5,6 +5,12 @@
 	export let form: ActionData;
 </script>
 
+<hr class="mt-3">
+
+<p class="mt-3 text-sm font-light text-center text-gray-400">
+	Sign in to create your own page. 100% free!
+</p>
+
 <form class="mt-6" use:enhance method="POST">
 	<div>
 		<label for="email" class="block text-sm text-gray-800 dark:text-gray-200">E-mail:</label>

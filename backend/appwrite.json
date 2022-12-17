@@ -152,5 +152,25 @@
                 }
             ]
         }
+    ],
+    "functions": [
+        {
+            "$id": "secureCreate",
+            "name": "secureCreate",
+            "runtime": "node-16.0",
+            "path": "functions/secureCreate",
+            "entrypoint": "src/index.js",
+            "ignore": [
+                "node_modules",
+                ".npm"
+            ],
+            "execute": [],
+            "events": [
+                "databases.main.collections.profiles.documents.*.create",
+                "databases.main.collections.links.documents.*.create"
+            ],
+            "schedule": "",
+            "timeout": 15
+        }
     ]
 }

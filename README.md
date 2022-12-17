@@ -1,4 +1,4 @@
-![Almost Cover](static/cover.png)
+![Almost Cover](static/og-cover.png)
 
 # 💬 Almost Linktree
 

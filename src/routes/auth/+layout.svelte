@@ -1,5 +1,5 @@
 <div
-	class="m-3 mt-8 w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800"
+	class=" m-3 mt-8 w-full max-w-sm p-6 m-auto mx-auto bg-white rounded-lg shadow-md dark:bg-gray-800"
 >
 	<h1 class="text-3xl font-semibold text-center text-gray-700 dark:text-white">Almost Linktree</h1>
 
